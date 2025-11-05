@@ -1,5 +1,4 @@
-import React from "react";
-import Accardion from "./Accardion";
+import Accardion from "./Accordion";
 
 const App = () => {
   const faqs = [

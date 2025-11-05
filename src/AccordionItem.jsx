@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-
-const AccardionItem = ({ el, index }) => {
+const AccordionItem = ({ el, index, curOpen, setCurOpen }) => {
   const { title, text } = el;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = index === curOpen;
 
   const handlerToogle = () => {
-    setIsOpen(!isOpen);
+    setCurOpen(index);
   };
-  console.log(isOpen);
-  console.log("item", el, index);
   return (
     <div
       className={`item ${isOpen ? "open" : "item"}`}
-      onClick={() => handlerToogle()}
+      onClick={() => {
+        handlerToogle(index);
+      }}
     >
       <p className="number">{index <= 9 ? `0${index + 1}` : index}</p>
       <p className="title">{title}</p>
@@ -24,4 +22,4 @@ const AccardionItem = ({ el, index }) => {
   );
 };
 
-export default AccardionItem;
+export default AccordionItem;
